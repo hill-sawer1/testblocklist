@@ -17,14 +17,14 @@ jobs:
         run: |
           git clone https://git.sahil0.net/phash
           cd phash
-          go build -o ../phash
+          go build -o phash
           cd ..
       - name: Generate hashes
         run: |
           find images/ -type f | while IFS= read -r f; do
             dir="hashes.tmp/$(dirname "${f#images/}")"
             mkdir -p "$dir"
-            ./phash < "$f" >> "$dir/phash"
+            phash/phash < "$f" >> "$dir/phash"
           done
           find hashes.tmp/ -name "phash" | while IFS= read -r f; do
             sort -o "$f" "$f"
