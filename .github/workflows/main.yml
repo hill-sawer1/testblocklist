@@ -15,9 +15,9 @@ jobs:
           go-version: stable
       - name: Build pHash
         run: |
-          git clone https://git.sahil0.net/phash
-          cd phash
-          go build -o phash
+          [ -d phash ] || git clone https://git.sahil0.net/phash &&
+          cd phash &&
+          go build -o phash &&
           cd ..
       - name: Generate hashes
         run: |
