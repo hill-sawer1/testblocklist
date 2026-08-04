@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'images/**'
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:
