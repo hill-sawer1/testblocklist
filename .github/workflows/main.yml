@@ -16,10 +16,10 @@ jobs:
           go-version: stable
       - name: Build pHash
         run: |
-          [ -d phash ] || git clone https://git.sahil0.net/phash &&
-          cd phash &&
-          go build -o phash &&
-          cd ..
+          rm -rf phash
+          git clone https://git.sahil0.net/phash
+          cd phash
+          go build -o phash
       - name: Generate hashes
         run: |
           find images/ -type f | while IFS= read -r f; do
