@@ -28,7 +28,7 @@ jobs:
             phash/phash < "$f" >> "$dir/phash" || echo "skip: $f"
           done
           find hashes.tmp/ -name "phash" | while IFS= read -r f; do
-            sort -o "$f" "$f"
+            sort -u -o "$f" "$f"
           done
           rm -rf hashes/
           mv hashes.tmp/ hashes/
